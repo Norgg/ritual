@@ -14,7 +14,6 @@ public class Draggable : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		Debug.Log ("Dragging");
 		dragged = true;
 	}
 
