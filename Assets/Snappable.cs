@@ -3,14 +3,13 @@ using System.Collections;
 
 public class Snappable : MonoBehaviour {
 
-    public string SnapToObjectName;
     public float tolerance;
-    private SnappableTo SnapTo;
+    [HideInInspector]
+    public SnappableTo SnapTo;
     private Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
-        SnapTo = GameObject.Find(SnapToObjectName).GetComponent<SnappableTo>();
         rb = GetComponent<Rigidbody2D>();
 	}
 	
@@ -29,16 +28,18 @@ public class Snappable : MonoBehaviour {
 
     void OnMouseUp()
     {
-        // Finished Dragging, see if there's a snappable point ~nearby~
-        // Get the element's current location
-        Vector3 position = transform.position;
-        float dist = Vector3.Distance(position, SnapTo.snapCenter);
-        Debug.Log(dist);
-        if (dist < tolerance)
+        if (SnapTo)
         {
-            // Snap into place
-            transform.position = SnapTo.snapCenter;
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            // SnapTo will be set by the trigger on the SnappableTo object
+            Vector3 position = transform.position;
+            float dist = Vector3.Distance(position, SnapTo.snapCenter);
+            Debug.Log(dist);
+            if (dist < tolerance)
+            {
+                // Snap into place
+                transform.position = SnapTo.snapCenter;
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
         }
     }
 }

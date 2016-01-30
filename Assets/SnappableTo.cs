@@ -9,5 +9,15 @@ public class SnappableTo : MonoBehaviour {
     void Start()
     {
         snapCenter = GetComponent<SpriteRenderer>().bounds.center + SnapOffset;
+        
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Mask")
+        {
+            Snappable otherSnappable = other.GetComponent<Snappable>();
+            otherSnappable.SnapTo = this;
+        }
     }
 }
