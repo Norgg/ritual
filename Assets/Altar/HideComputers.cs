@@ -10,7 +10,6 @@ public class HideComputers : AltarOrder {
 
     override public void OnComplete()
     {
-		Debug.Log("hide things");
-		//ritual.doSomething();
+		ritual.ContributeProbability(0.1f);
     }
 }

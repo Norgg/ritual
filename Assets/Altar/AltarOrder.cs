@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 public abstract class AltarOrder {
-	RitualManager ritual;
+	protected RitualManager ritual;
 	protected List<GameObject> steps;
 
-	public void Awake() {
+	public AltarOrder() {
 		ritual = GameObject.Find("RitualManager").GetComponent<RitualManager>();
 	}
 
