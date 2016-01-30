@@ -12,7 +12,7 @@ public class SnappableTo : MonoBehaviour {
 
     void Start()
     {
-        snapCenter = GetComponent<SpriteRenderer>().bounds.center + SnapOffset;
+        snapCenter = GetComponent<Collider2D>().bounds.center + SnapOffset;
         
     }
 

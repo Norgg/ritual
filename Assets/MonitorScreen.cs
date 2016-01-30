@@ -6,6 +6,7 @@ public class MonitorScreen : MonoBehaviour
     public bool monitorOn;
     SpriteRenderer spriteRenderer;
     AudioSource tvSwitchSound;
+    public GameObject light;
 
     void Start()
     {
@@ -19,11 +20,13 @@ public class MonitorScreen : MonoBehaviour
     {
         if (monitorOn)
         {
+            light.gameObject.SetActive(false);
             monitorOn = false;
             spriteRenderer.color = Color.black;
         }
         else
         {
+            light.gameObject.SetActive(true);
             monitorOn = true;
             spriteRenderer.color = Color.white;
         }
