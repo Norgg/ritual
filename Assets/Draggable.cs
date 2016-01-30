@@ -22,7 +22,7 @@ public class Draggable : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate() {
 		if (dragged) {
 			Vector3 mouseWorldPoint = Camera.main.ScreenToWorldPoint (Input.mousePosition);
 			mouseWorldPoint.z = 0.0f;
