@@ -3985,7 +3985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b143ea9eea0f3994cad1e5f3bb30a7f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eclipseLength: 10
+  eclipseLength: 60
 --- !u!212 &1560943497
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -5,10 +5,12 @@ public class RouterLights : MonoBehaviour {
 	new GameObject light;
     public bool badOmen = false;
     public bool goodOmen = true;
+	RitualManager ritual;
 
 	// Use this for initialization
 	void Start () {
 		light = transform.FindChild("light").gameObject;
+		ritual = GameObject.Find("RitualManager").GetComponent<RitualManager>();
 	}
 	
 	// Update is called once per frame
@@ -16,6 +18,7 @@ public class RouterLights : MonoBehaviour {
 	    if (badOmen)
 	    {
 	        light.GetComponent<Light>().color = Color.red;
+			ritual.ContributeProbability(-0.1f);
 	    }
         else
 	    {
@@ -26,6 +29,7 @@ public class RouterLights : MonoBehaviour {
 	    if (goodOmen)
 	    {
 	        light.SetActive(true);
+			ritual.ContributeProbability(0.1f);
 	    }
 		else if (Random.value < 0.1) {
 			light.SetActive(!light.activeSelf);
