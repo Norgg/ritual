@@ -43,3 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BG
+    uniqueID: 2766379615
+    locked: 0
+  - name: Scenery
+    uniqueID: 2624417387
+    locked: 0
+  - name: Object
+    uniqueID: 1301254845
+    locked: 0
