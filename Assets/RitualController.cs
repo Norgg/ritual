@@ -3,20 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Pedestal : MonoBehaviour {
+public class RitualController : MonoBehaviour {
 
     GameObject computers;
     List<GameObject> order;
-    List<GameObject> desired;
+    List<IRit> valid;
 
 	// Use this for initialization
 	void Start () {
         computers = GameObject.Find("computers");
         order = new List<GameObject>();
-        desired = new List<GameObject>()
-        {
-            GameObject.Find("thing"),
-            GameObject.Find("thing2")
+        valid = new List<IRit>() {
+            new ShowComputers(),
+            new HideComputers()
         };
 	}
 	
@@ -36,10 +35,16 @@ public class Pedestal : MonoBehaviour {
             Debug.Log("Added to order", otherObject);
         }
 
-        if (desired.SequenceEqual(order))
-        {
-            Debug.Log("DESIRED SEQUENCE ACHIEVED");
-            computers.SetActive(false);
+        foreach (IRit rit in valid) {
+            if (rit.GetSteps().SequenceEqual(order))
+            {
+                Debug.Log("DESIRED SEQUENCE ACHIEVED");
+                rit.OnComplete();
+
+                // Reset ready for new sequence
+                order = new List<GameObject>();
+                break;
+            }
         }
     }
 
