@@ -6,6 +6,7 @@ TagManager:
   tags:
   - rit
   - RitualManager
+  - Mask
   layers:
   - Default
   - TransparentFX
