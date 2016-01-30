@@ -30,17 +30,12 @@ public class Pedestal : MonoBehaviour {
         GameObject otherObject = other.gameObject;
         Debug.Log("Touched Pedestal", otherObject);
 
-        if (order.Count > 0 && order[order.Count - 1] != otherObject)
+        if (order.Count == 0 || order.Last() != otherObject)
         {
             order.Add(otherObject);
             Debug.Log("Added to order", otherObject);
         }
 
-        Debug.Log("Starting desired dump");
-        foreach (GameObject d in desired)
-        {
-            Debug.Log(d);
-        }
         if (desired.SequenceEqual(order))
         {
             Debug.Log("DESIRED SEQUENCE ACHIEVED");
@@ -51,5 +46,12 @@ public class Pedestal : MonoBehaviour {
     public void OnTriggerExit2D(Collider2D other)
     {
         
+    }
+
+    public void ResetState()
+    {
+        Debug.Log("Resetting State");
+        computers.SetActive(true);
+        order = new List<GameObject>();
     }
 }
