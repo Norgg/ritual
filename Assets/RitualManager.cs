@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RitualManager : MonoBehaviour
-{
-
+public class RitualManager : MonoBehaviour {
     private float successProbability = 0;
     public float initialProbabilityRange;
 

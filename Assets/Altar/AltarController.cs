@@ -6,9 +6,12 @@ using System.Linq;
 public class AltarController : MonoBehaviour {
     List<GameObject> order;
     List<AltarOrder> valid;
+	RitualManager ritual;
+	float contribution = 0.0f;
 
 	// Use this for initialization
 	void Start () {
+		ritual = GameObject.Find("RitualManager").GetComponent<RitualManager>();
         order = new List<GameObject>();
         valid = new List<AltarOrder>() {
             new ShowComputers(),
@@ -18,7 +21,7 @@ public class AltarController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		ritual.ContributeProbability(contribution);
 	}
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -36,7 +39,7 @@ public class AltarController : MonoBehaviour {
 			if (altarOrder.GetSteps().SequenceEqual(order.Skip(order.Count - 3).Take(2)))
             {
                 Debug.Log("DESIRED SEQUENCE ACHIEVED");
-                altarOrder.OnComplete();
+                contribution += altarOrder.contribution;
 
                 // Reset ready for new sequence
                 order = new List<GameObject>();
