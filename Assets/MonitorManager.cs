@@ -14,8 +14,11 @@ public class MonitorManager : MonoBehaviour
     private MonitorScreen[] monitors;
     RitualManager ritualManager;
 
+    AudioSource humSound;
+
 	void Start ()
 	{
+	    humSound = GetComponent<AudioSource>();
 	    ritualManager = GameObject.FindGameObjectWithTag("RitualManager").GetComponent<RitualManager>();
 	    monitors = GetComponentsInChildren<MonitorScreen>();
         ResetTimerInterval();
@@ -23,7 +26,7 @@ public class MonitorManager : MonoBehaviour
 
     void ResetTimerInterval()
     {
-	    currentInterval = Random.Range(2, 5);
+	    currentInterval = Random.Range(intervalMin, intervalMax);
 	    currentTimer = 0;
     }
 	
@@ -41,7 +44,6 @@ public class MonitorManager : MonoBehaviour
 
     float CalculateFavour()
     {
-        //Should check whether hum is on or off in here too
         int numOn = 0;
         foreach (MonitorScreen screen in monitors)
         {
@@ -49,6 +51,19 @@ public class MonitorManager : MonoBehaviour
             {
                 numOn++;
             }
+        }
+
+        if (numOn > 0)
+        {
+            if (!humSound.isPlaying)
+            {
+                humSound.Play();
+            }
+            humSound.volume = 0.007f*numOn;
+        }
+        else
+        {
+            humSound.Stop();
         }
 
         if (monitors[0].monitorOn && monitors[monitors.Length - 1].monitorOn)

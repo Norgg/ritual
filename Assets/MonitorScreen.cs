@@ -5,12 +5,14 @@ public class MonitorScreen : MonoBehaviour
 {
     public bool monitorOn;
     SpriteRenderer spriteRenderer;
+    AudioSource tvSwitchSound;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = Color.black;
         monitorOn = false;
+        tvSwitchSound = GetComponent<AudioSource>();
     }
 
     public void Toggle()
@@ -25,5 +27,11 @@ public class MonitorScreen : MonoBehaviour
             monitorOn = true;
             spriteRenderer.color = Color.white;
         }
+    }
+
+    public void OnMouseDown()
+    {
+        tvSwitchSound.Play();
+        Toggle();
     }
 }
