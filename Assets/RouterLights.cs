@@ -3,6 +3,8 @@ using System.Collections;
 
 public class RouterLights : MonoBehaviour {
 	GameObject light;
+    public bool badOmen = false;
+    public bool goodOmen = true;
 
 	// Use this for initialization
 	void Start () {
@@ -11,7 +13,21 @@ public class RouterLights : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Random.value < 0.01) {
+	    if (badOmen)
+	    {
+	        light.GetComponent<Light>().color = Color.red;
+	    }
+        else
+	    {
+	        light.GetComponent<Light>().color = Color.green;
+	    }
+
+
+	    if (goodOmen)
+	    {
+	        light.SetActive(true);
+	    }
+		else if (Random.value < 0.1) {
 			light.SetActive(!light.activeSelf);
 		}
 	}
