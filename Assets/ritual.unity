@@ -1618,6 +1618,7 @@ GameObject:
   - 4: {fileID: 2047688123}
   - 212: {fileID: 2047688122}
   - 114: {fileID: 2047688124}
+  - 60: {fileID: 2047688125}
   m_Layer: 0
   m_Name: router
   m_TagString: Untagged
@@ -1679,6 +1680,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8ef139831eeb5458853a90c7ba9b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &2047688125
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2047688121}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+    m_Paths:
+    - - {x: 1.17, y: -0.31}
+      - {x: 1.13, y: -0.17}
+      - {x: 1, y: 0.26}
+      - {x: 0.90999997, y: 0.48999998}
+      - {x: 0.74, y: 0.93}
+      - {x: 0.65999997, y: 0.98999995}
+      - {x: -0.57, y: 0.98999995}
+      - {x: -0.59, y: 0.97999996}
+      - {x: -0.69, y: 0.84}
+      - {x: -0.83, y: 0.51}
+      - {x: -0.96999997, y: 0.19999999}
+      - {x: -1.15, y: -0.22999999}
+      - {x: -1.17, y: -0.29999998}
+      - {x: -1.17, y: -0.91999996}
+      - {x: -1.0799999, y: -0.97999996}
+      - {x: -0.41, y: -0.97999996}
+      - {x: -0.39999998, y: -0.98999995}
+      - {x: 1.09, y: -0.98999995}
+      - {x: 1.11, y: -0.97999996}
+      - {x: 1.16, y: -0.93}
+      - {x: 1.17, y: -0.81}
 --- !u!1 &2127800021
 GameObject:
   m_ObjectHideFlags: 0
