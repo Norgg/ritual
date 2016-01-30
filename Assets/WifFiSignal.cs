@@ -3,33 +3,24 @@ using System.Collections;
 
 public class WifFiSignal : MonoBehaviour
 {
-
-    public float intervalMin;
-    public float intervalMax;
-    private float currentTime = 0;
-    private float currentInterval;
-
     public Sprite[] signalSprites;
     SpriteRenderer spriteRenderer;
+
+	int signal;
 
 	void Start ()
 	{
 	    spriteRenderer = GetComponent<SpriteRenderer>();
-	    currentInterval = Random.Range(intervalMin, intervalMax);
 	}
 	
-	void Update ()
+	void LateUpdate ()
 	{
-	    currentTime += Time.deltaTime;
-	    if (currentTime > currentInterval)
-	    {
-	        currentTime = 0;
-	        ChangeWifiSignal();
-	    }
+		spriteRenderer.sprite = signalSprites[Mathf.Min(signal, 3)];
+		signal = 0;
 	}
 
-    void ChangeWifiSignal()
+    public void AddSignal()
     {
-        spriteRenderer.sprite = signalSprites[Random.Range(0, signalSprites.Length)];
+		signal += 1;
     }
 }

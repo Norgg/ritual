@@ -36,7 +36,6 @@ public class Snappable : MonoBehaviour {
             // SnapTo will be set by the trigger on the SnappableTo object
             Vector3 position = transform.position;
             float dist = Vector3.Distance(position, SnapTo.snapCenter);
-            Debug.Log(dist);
             if (dist < tolerance)
             {
                 // Snap into place

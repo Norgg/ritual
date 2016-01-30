@@ -4,6 +4,8 @@ using System.Collections;
 public class SnappableTo : MonoBehaviour {
     GameObject favoured;
     public Vector3 SnapOffset;
+	RitualManager ritual;
+	WifFiSignal wifi;
 
     [HideInInspector]
     public GameObject currentlySnapped;
@@ -15,6 +17,9 @@ public class SnappableTo : MonoBehaviour {
         snapCenter = GetComponent<Collider2D>().bounds.center + SnapOffset;
 		GameObject[] masks = GameObject.FindGameObjectsWithTag("Mask");
 		favoured = masks[Random.Range (0, masks.Length)];
+		Debug.Log (favoured.name);
+		ritual = GameObject.FindGameObjectWithTag("RitualManager").GetComponent<RitualManager>();
+		wifi = GameObject.Find("WifiSignal").GetComponent<WifFiSignal> ();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -28,10 +33,11 @@ public class SnappableTo : MonoBehaviour {
 
     void Update()
     {
-        RitualManager rm = GameObject.FindGameObjectWithTag("RitualManager").GetComponent<RitualManager>();
         // if favoured present
         if (currentlySnapped && favoured == currentlySnapped) {
-            rm.ContributeProbability(0.1f);
+			Debug.Log ("Yay?");
+            ritual.ContributeProbability(0.1f);
+			wifi.AddSignal();
         }
     }
 }
