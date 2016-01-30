@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RitualManager : MonoBehaviour {
     private float successProbability = 0;
@@ -9,6 +10,9 @@ public class RitualManager : MonoBehaviour {
     public bool judged = false;
 
     public Text debugText;
+
+	bool won = false;
+	bool lost = false;
 
 	void Start ()
 	{
@@ -31,6 +35,18 @@ public class RitualManager : MonoBehaviour {
         successProbability = Mathf.Clamp(successProbability + probability, 0, 0.9f);
     }
 
+	void OnGUI() {
+		if (won) {
+			GUI.Label (new Rect (Screen.width / 2 - 100, Screen.height / 2 - 60, 200, 50), "UPLOAD SUCCESSFUL");
+		} else if (lost) {
+			GUI.Label (new Rect (Screen.width / 2 - 100, Screen.height / 2 - 60, 200, 50), "UPLOAD INTERRUPTED");
+		}
+		if (won || lost) {
+			if (GUI.Button(new Rect(Screen.width/2 - 50, Screen.height/2 - 25, 100, 50), "PRAY AGAIN")) {
+				SceneManager.LoadScene(0);
+			}
+		}
+	}
 
     public void Finish()
     {
@@ -45,10 +61,12 @@ public class RitualManager : MonoBehaviour {
             if (Random.value < initialProbabilityRange)
             {
                 print("You win");
+				won = true;
             }
             else
             {
                 print("You lose");
+				lost = true;
             }
         }
     }
