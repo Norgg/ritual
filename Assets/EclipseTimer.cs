@@ -17,15 +17,19 @@ public class EclipseTimer : MonoBehaviour {
 	
 	void Update ()
 	{
-	    currentTime += Time.deltaTime;
-		light.intensity = 1.0f - currentTime / eclipseLength;
-	    light.intensity *= 0.5f;
+		light.intensity = (1.0f - currentTime / eclipseLength) * 0.5f + (currentTime / eclipseLength) * 0.10f;
 
-	    if (!finished && currentTime > eclipseLength)
+	    if (currentTime > eclipseLength)
 	    {
-	        finished = true;
-	        ritualManager.Finish();
-            //GetComponent<SpriteRenderer>().color = Color.red;
+	        if (!finished)
+	        {
+                finished = true;
+                ritualManager.Finish();
+	        }
 	    }
-	}
+	    else
+	    {
+            currentTime += Time.deltaTime;
+        }
+    }
 }
