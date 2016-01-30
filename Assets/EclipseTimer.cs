@@ -23,7 +23,7 @@ public class EclipseTimer : MonoBehaviour {
 	    {
 	        finished = true;
 	        ritualManager.Finish();
-            GetComponent<SpriteRenderer>().color = Color.red;
+            //GetComponent<SpriteRenderer>().color = Color.red;
 	    }
 	}
 }
