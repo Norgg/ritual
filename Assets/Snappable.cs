@@ -23,7 +23,9 @@ public class Snappable : MonoBehaviour {
         if (rb.constraints == RigidbodyConstraints2D.FreezeAll)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            SnapTo.currentlySnapped = null;
+			if (SnapTo != null) {
+				SnapTo.currentlySnapped = null;
+			}
         }
     }
 

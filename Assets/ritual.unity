@@ -845,7 +845,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5c8001340501c7b4ca14fdfca13d8580, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1320,11 +1320,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 451708, guid: dede810278a3b4c4d884a9d0930d79e1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.2
+      value: 2.06
       objectReference: {fileID: 0}
     - target: {fileID: 451708, guid: dede810278a3b4c4d884a9d0930d79e1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.8
+      value: -1.71
       objectReference: {fileID: 0}
     - target: {fileID: 451708, guid: dede810278a3b4c4d884a9d0930d79e1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1348,7 +1348,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 451708, guid: dede810278a3b4c4d884a9d0930d79e1, type: 2}
       propertyPath: m_RootOrder
-      value: 23
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 185982, guid: dede810278a3b4c4d884a9d0930d79e1, type: 2}
       propertyPath: m_Name
@@ -1552,7 +1552,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1670549909
+  m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 34088bf9184b79f4884a4dfc0210d5d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1809,7 +1809,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 03028ec63a0e3d545815c2e0707433ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2458,11 +2458,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 451708, guid: dede810278a3b4c4d884a9d0930d79e1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.4
+      value: -2.17
       objectReference: {fileID: 0}
     - target: {fileID: 451708, guid: dede810278a3b4c4d884a9d0930d79e1, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.63
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 451708, guid: dede810278a3b4c4d884a9d0930d79e1, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2568,7 +2568,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0.14705884, g: 0.14705884, b: 0.14705884, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -2947,7 +2947,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.7
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
