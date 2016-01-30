@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(AudioSource))]
 public class SoundClick : MonoBehaviour {
 
-    private AudioSource audio;
+    new private AudioSource audio;
 
 	// Use this for initialization
 	void Start () {

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class RouterLights : MonoBehaviour {
-	GameObject light;
+	new GameObject light;
     public bool badOmen = false;
     public bool goodOmen = true;
 

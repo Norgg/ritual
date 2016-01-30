@@ -7,7 +7,7 @@ public class EclipseTimer : MonoBehaviour {
     public float eclipseLength = 10f;
     private float currentTime = 0f;
     private RitualManager ritualManager;
-	private Light light;
+	new private Light light;
 
     void Start()
     {

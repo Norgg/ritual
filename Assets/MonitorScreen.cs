@@ -6,7 +6,7 @@ public class MonitorScreen : MonoBehaviour
     public bool monitorOn;
     SpriteRenderer spriteRenderer;
     AudioSource tvSwitchSound;
-    public GameObject light;
+    new public GameObject light;
 
     void Start()
     {

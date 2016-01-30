@@ -17,7 +17,6 @@ public class SnappableTo : MonoBehaviour {
         snapCenter = GetComponent<Collider2D>().bounds.center + SnapOffset;
 		GameObject[] masks = GameObject.FindGameObjectsWithTag("Mask");
 		favoured = masks[Random.Range (0, masks.Length)];
-		Debug.Log (favoured.name);
 		ritual = GameObject.FindGameObjectWithTag("RitualManager").GetComponent<RitualManager>();
 		wifi = GameObject.Find("WifiSignal").GetComponent<WifFiSignal> ();
     }
@@ -35,7 +34,6 @@ public class SnappableTo : MonoBehaviour {
     {
         // if favoured present
         if (currentlySnapped && favoured == currentlySnapped) {
-			Debug.Log ("Yay?");
             ritual.ContributeProbability(0.1f);
 			wifi.AddSignal();
         }
