@@ -5,15 +5,16 @@ public class RitualManager : MonoBehaviour
 {
 
     private float successProbability = 0;
+    public float initialProbabilityRange;
 
 	void Start ()
 	{
-	    successProbability = 1;
+	    successProbability = Random.value* initialProbabilityRange;
 	}
 
-    void ContributeProbability(float probability)
+    public void ContributeProbability(float probability)
     {
-        successProbability += Mathf.Clamp(successProbability + probability, 0, 1);
+        successProbability += Mathf.Clamp(successProbability + probability, 0, 0.9f);
     }
 
 
@@ -24,6 +25,13 @@ public class RitualManager : MonoBehaviour
 
     void Judge()
     {
-        print("You suck");
+        if (Random.value < initialProbabilityRange)
+        {
+            print("You win");
+        }
+        else
+        {
+            print("You lose");
+        }
     }
 }
