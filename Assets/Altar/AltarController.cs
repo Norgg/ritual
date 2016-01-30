@@ -3,17 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class RitualController : MonoBehaviour {
-
-    GameObject computers;
+public class AltarController : MonoBehaviour {
     List<GameObject> order;
-    List<IRit> valid;
+    List<AltarOrder> valid;
 
 	// Use this for initialization
 	void Start () {
-        computers = GameObject.Find("computers");
         order = new List<GameObject>();
-        valid = new List<IRit>() {
+        valid = new List<AltarOrder>() {
             new ShowComputers(),
             new HideComputers()
         };
@@ -35,11 +32,11 @@ public class RitualController : MonoBehaviour {
             Debug.Log("Added to order", otherObject);
         }
 
-        foreach (IRit rit in valid) {
-            if (rit.GetSteps().SequenceEqual(order))
+        foreach (AltarOrder altarOrder in valid) {
+			if (altarOrder.GetSteps().SequenceEqual(order.Skip(order.Count - 3).Take(2)))
             {
                 Debug.Log("DESIRED SEQUENCE ACHIEVED");
-                rit.OnComplete();
+                altarOrder.OnComplete();
 
                 // Reset ready for new sequence
                 order = new List<GameObject>();
@@ -51,12 +48,5 @@ public class RitualController : MonoBehaviour {
     public void OnTriggerExit2D(Collider2D other)
     {
         
-    }
-
-    public void ResetState()
-    {
-        Debug.Log("Resetting State");
-        computers.SetActive(true);
-        order = new List<GameObject>();
     }
 }
