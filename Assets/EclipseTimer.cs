@@ -7,15 +7,18 @@ public class EclipseTimer : MonoBehaviour {
     public float eclipseLength = 10f;
     private float currentTime = 0f;
     private RitualManager ritualManager;
+	private Light light;
 
     void Start()
     {
         ritualManager = GameObject.FindGameObjectWithTag("RitualManager").GetComponent<RitualManager>();
+		light = GetComponent<Light>();
     }
 	
 	void Update ()
 	{
 	    currentTime += Time.deltaTime;
+		light.intensity = 1.0f - currentTime / eclipseLength;
 	    if (!finished && currentTime > eclipseLength)
 	    {
 	        finished = true;

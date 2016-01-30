@@ -2,12 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class RitualManager : MonoBehaviour
-{
-
-    private bool finished = false;
+public class RitualManager : MonoBehaviour {
     private float successProbability = 0;
     public float initialProbabilityRange;
+    private bool finished = false;
     public bool judged = false;
 
     public Text debugText;
@@ -30,7 +28,7 @@ public class RitualManager : MonoBehaviour
 
     public void ContributeProbability(float probability)
     {
-        successProbability += Mathf.Clamp(successProbability + probability, 0, 0.9f);
+        successProbability = Mathf.Clamp(successProbability + probability, 0, 0.9f);
     }
 
 
