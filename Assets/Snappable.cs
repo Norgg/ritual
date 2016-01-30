@@ -23,6 +23,7 @@ public class Snappable : MonoBehaviour {
         if (rb.constraints == RigidbodyConstraints2D.FreezeAll)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            SnapTo.currentlySnapped = null;
         }
     }
 
@@ -39,6 +40,7 @@ public class Snappable : MonoBehaviour {
                 // Snap into place
                 transform.position = SnapTo.snapCenter;
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                SnapTo.currentlySnapped = gameObject;
             }
         }
     }
