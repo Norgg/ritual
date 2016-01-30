@@ -59,7 +59,7 @@ public class MonitorManager : MonoBehaviour
             {
                 humSound.Play();
             }
-            humSound.volume = 0.007f*numOn;
+            humSound.volume = 0.02f*numOn;
         }
         else
         {
