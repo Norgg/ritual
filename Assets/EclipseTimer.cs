@@ -17,7 +17,7 @@ public class EclipseTimer : MonoBehaviour {
 	
 	void Update ()
 	{
-		light.intensity = (1.0f - currentTime / eclipseLength) * 0.5f + (currentTime / eclipseLength) * 0.10f;
+		light.intensity = (1.0f - currentTime / eclipseLength) * 0.4f + (currentTime / eclipseLength) * 0.1f;
 
 	    if (currentTime > eclipseLength)
 	    {

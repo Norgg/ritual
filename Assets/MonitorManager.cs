@@ -14,11 +14,11 @@ public class MonitorManager : MonoBehaviour
     private MonitorScreen[] monitors;
     RitualManager ritualManager;
 
-    AudioSource humSound;
+    public AudioSource humSound;
+    public AudioSource crackleSound;
 
 	void Start ()
 	{
-	    humSound = GetComponent<AudioSource>();
 	    ritualManager = GameObject.FindGameObjectWithTag("RitualManager").GetComponent<RitualManager>();
 	    monitors = GetComponentsInChildren<MonitorScreen>();
         ResetTimerInterval();
@@ -39,8 +39,43 @@ public class MonitorManager : MonoBehaviour
 	        monitors[Random.Range(0, monitors.Length)].Toggle();
 	    }
 
-	    ritualManager.ContributeProbability(CalculateFavour());
-	}
+	    float favour = CalculateFavour();
+	    ritualManager.ContributeProbability(favour);
+
+        //Playing appropriate sound
+        int numOn = 0;
+        foreach (MonitorScreen screen in monitors)
+        {
+            if (screen.monitorOn)
+            {
+                numOn++;
+            }
+        }
+
+	    if (favour <= 0 && numOn > 0)
+	    {
+            crackleSound.Stop();
+	        if (!humSound.isPlaying)
+	        {
+	            humSound.Play();
+	        }
+	    }
+	    else if (numOn > 0)
+	    {
+            humSound.Stop();
+	        if (!crackleSound.isPlaying)
+	        {
+	            crackleSound.Play();
+	        }
+	    }
+	    else
+	    {
+	        humSound.Stop();
+            crackleSound.Stop();
+	    }
+
+        humSound.volume = 0.02f * numOn;
+    }
 
     float CalculateFavour()
     {
@@ -53,18 +88,6 @@ public class MonitorManager : MonoBehaviour
             }
         }
 
-        if (numOn > 0)
-        {
-            if (!humSound.isPlaying)
-            {
-                humSound.Play();
-            }
-            humSound.volume = 0.02f*numOn;
-        }
-        else
-        {
-            humSound.Stop();
-        }
 
         if (monitors[0].monitorOn && monitors[monitors.Length - 1].monitorOn)
         {
