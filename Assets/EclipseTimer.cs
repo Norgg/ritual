@@ -19,6 +19,8 @@ public class EclipseTimer : MonoBehaviour {
 	{
 	    currentTime += Time.deltaTime;
 		light.intensity = 1.0f - currentTime / eclipseLength;
+	    light.intensity *= 0.5f;
+
 	    if (!finished && currentTime > eclipseLength)
 	    {
 	        finished = true;
