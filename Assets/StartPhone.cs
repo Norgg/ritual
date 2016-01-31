@@ -15,7 +15,7 @@ public class StartPhone : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Random.value < 0.0003) {
+		if (Random.value < 0.0001) {
 			ringing = true;
 		}
 
@@ -26,6 +26,10 @@ public class StartPhone : MonoBehaviour {
 			if (!ringSound.isPlaying)
 			{
 				ringSound.Play();
+			}
+
+			if (Random.value < 0.001) {
+				ringing = false;
 			}
 		}
 	
