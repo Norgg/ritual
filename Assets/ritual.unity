@@ -882,14 +882,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 493502, guid: 1b01b41aa7a9dcb47a69ede2c5ddd11e, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.9592584
-      objectReference: {fileID: 0}
-    - target: {fileID: 493502, guid: 1b01b41aa7a9dcb47a69ede2c5ddd11e, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.89212906
-      objectReference: {fileID: 0}
     - target: {fileID: 132690, guid: 1b01b41aa7a9dcb47a69ede2c5ddd11e, type: 2}
       propertyPath: m_Name
       value: Screen (1)
@@ -3219,6 +3211,10 @@ Prefab:
       propertyPath: m_Range
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8221872, guid: 1b01b41aa7a9dcb47a69ede2c5ddd11e, type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b01b41aa7a9dcb47a69ede2c5ddd11e, type: 2}
   m_IsPrefabParent: 0
@@ -3757,6 +3753,10 @@ Prefab:
     - target: {fileID: 132690, guid: 1b01b41aa7a9dcb47a69ede2c5ddd11e, type: 2}
       propertyPath: m_Name
       value: Screen (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8221872, guid: 1b01b41aa7a9dcb47a69ede2c5ddd11e, type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b01b41aa7a9dcb47a69ede2c5ddd11e, type: 2}
@@ -4333,7 +4333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b143ea9eea0f3994cad1e5f3bb30a7f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eclipseLength: 60
+  eclipseLength: 1
   directionalLight: {fileID: 1560943499}
   pointMoonLight: {fileID: 1125395081}
   lunarCover: {fileID: 89466455}

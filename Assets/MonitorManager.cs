@@ -17,6 +17,8 @@ public class MonitorManager : MonoBehaviour
     public AudioSource humSound;
     public AudioSource crackleSound;
 
+    private bool heartScreens = false;
+
 	void Start ()
 	{
 	    ritualManager = GameObject.FindGameObjectWithTag("RitualManager").GetComponent<RitualManager>();
@@ -29,9 +31,31 @@ public class MonitorManager : MonoBehaviour
 	    currentInterval = Random.Range(intervalMin, intervalMax);
 	    currentTimer = 0;
     }
+
+    public void HeartScreens()
+    {
+        StartCoroutine(StartHeartScreens());
+    }
+
+    IEnumerator StartHeartScreens()
+    {
+        heartScreens = true;
+        crackleSound.Play();
+        humSound.Stop();
+
+        foreach(MonitorScreen monitor in monitors)
+        {
+            monitor.SetHeart();
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
 	
 	void Update ()
 	{
+	    if (heartScreens)
+	    {
+	        return;
+	    }
 	    currentTimer += Time.deltaTime;
 	    if (currentTimer > currentInterval)
 	    {

@@ -8,12 +8,24 @@ public class MonitorScreen : MonoBehaviour
     AudioSource tvSwitchSound;
     new public GameObject light;
 
+    bool heartScreen = false;
+    public Sprite heartSprite;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color = Color.black;
         monitorOn = false;
         tvSwitchSound = GetComponent<AudioSource>();
+    }
+
+    public void SetHeart()
+    {
+        heartScreen = true;
+        light.gameObject.SetActive(true);
+        spriteRenderer.color = Color.white;
+        spriteRenderer.sprite = heartSprite;
+        transform.localScale = new Vector3(1,1,1) * 0.1f;
     }
 
     public void Toggle()
@@ -34,7 +46,10 @@ public class MonitorScreen : MonoBehaviour
 
     public void OnMouseDown()
     {
-        tvSwitchSound.Play();
-        Toggle();
+        if (!heartScreen)
+        {
+            tvSwitchSound.Play();
+            Toggle();
+        }
     }
 }
