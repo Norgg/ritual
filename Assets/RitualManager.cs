@@ -10,15 +10,17 @@ public class RitualManager : MonoBehaviour {
     private bool finished = false;
     public bool judged = false;
 
-    public Text debugText;
-
-
     //Winning stuff
 	bool won = false;
     public AudioSource modemSound;
     public RouterLights routerLights;
     public MonitorManager monitorManager;
     public Heart heart;
+
+    //Losing stuff
+    public Goat goat;
+    public CamShake shake;
+    public GameObject blackScreen;
 
 	void Start ()
 	{
@@ -27,7 +29,6 @@ public class RitualManager : MonoBehaviour {
 
     void LateUpdate()
     {
-        debugText.text = "Ritual probability: " + successProbability;
         if (finished)
         {
             Judge();
@@ -38,7 +39,7 @@ public class RitualManager : MonoBehaviour {
 
     public void ContributeProbability(float probability)
     {
-        successProbability = Mathf.Clamp(successProbability + probability, 0, 0.9f);
+        successProbability = Mathf.Clamp(successProbability + probability, 0, 1);
     }
 
     public void Finish()
@@ -78,9 +79,15 @@ public class RitualManager : MonoBehaviour {
 
     IEnumerator LoseEnd()
     {
-        //Goat freak
-        //Screen shake
-        //Patrick on monitors (with sound effects)
-        //Cut to Black
+        goat.GoatFreakout();
+        yield return new WaitForSeconds(4);
+        shake.Shake(100);
+        yield return new WaitForSeconds(4);
+        monitorManager.PatrickScreens();
+        yield return new WaitForSeconds(4);
+        blackScreen.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+
+        SceneManager.LoadScene("badend");
     }
 }

@@ -9,7 +9,10 @@ public class MonitorScreen : MonoBehaviour
     new public GameObject light;
 
     bool heartScreen = false;
+    bool patrickScreen = false;
+
     public Sprite heartSprite;
+    public Sprite patrickSprite;
 
     void Start()
     {
@@ -26,6 +29,15 @@ public class MonitorScreen : MonoBehaviour
         spriteRenderer.color = Color.white;
         spriteRenderer.sprite = heartSprite;
         transform.localScale = new Vector3(1,1,1) * 0.1f;
+    }
+
+    public void SetPatrick()
+    {
+        patrickScreen = true;
+        light.gameObject.SetActive(true);
+        spriteRenderer.color = Color.white;
+        spriteRenderer.sprite = patrickSprite;
+        transform.localScale = new Vector3(1,1,1) * 0.05f;
     }
 
     public void Toggle()
@@ -46,7 +58,7 @@ public class MonitorScreen : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (!heartScreen)
+        if (!heartScreen && !patrickScreen)
         {
             tvSwitchSound.Play();
             Toggle();
