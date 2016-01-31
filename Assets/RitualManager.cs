@@ -73,7 +73,7 @@ public class RitualManager : MonoBehaviour {
         routerLights.EngulfScreen();
         yield return new WaitForSeconds(26);
 
-        SceneManager.LoadScene("end");
+        SceneManager.LoadScene("goodend");
     }
 
     IEnumerator LoseEnd()
