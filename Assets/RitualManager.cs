@@ -43,21 +43,6 @@ public class RitualManager : MonoBehaviour {
         successProbability = Mathf.Clamp(successProbability + probability, 0, 0.9f);
     }
 
-	void OnGUI() {
-        /*
-		if (won) {
-			GUI.Label (new Rect (Screen.width / 2 - 100, Screen.height / 2 - 60, 200, 50), "UPLOAD SUCCESSFUL");
-		} else if (lost) {
-			GUI.Label (new Rect (Screen.width / 2 - 100, Screen.height / 2 - 60, 200, 50), "UPLOAD INTERRUPTED");
-		}
-		if (won || lost) {
-			if (GUI.Button(new Rect(Screen.width/2 - 50, Screen.height/2 - 25, 100, 50), "PRAY AGAIN")) {
-				SceneManager.LoadScene(0);
-			}
-		}
-        */
-	}
-
     public void Finish()
     {
         finished = true;
@@ -70,13 +55,7 @@ public class RitualManager : MonoBehaviour {
             judged = true;
             if (Random.value <= successProbability)
             {
-                print("You win");
-				won = true;
-                modemSound.Play();
-                heart.AscendHeart();
-                //Heart on all tvs
-
-                routerLights.EngulfScreen();
+                StartCoroutine(WinEnd());
             }
             else
             {
@@ -84,5 +63,19 @@ public class RitualManager : MonoBehaviour {
 				lost = true;
             }
         }
+    }
+
+    IEnumerator WinEnd()
+    {
+        modemSound.Play();
+        yield return new WaitForSeconds(2);
+        heart.AscendHeart();
+        yield return new WaitForSeconds(8);
+        monitorManager.HeartScreens();
+        yield return new WaitForSeconds(7);
+        routerLights.EngulfScreen();
+        yield return new WaitForSeconds(26);
+
+        SceneManager.LoadScene("end");
     }
 }

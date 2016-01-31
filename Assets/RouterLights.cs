@@ -57,18 +57,10 @@ public class RouterLights : MonoBehaviour {
         Light lightComp = light.GetComponent<Light>();
         lightComp.color = Color.green;
 
-        float initialWait = 15;
-        float waitSoFar = 0;
-        float timeStep = 0.02f;
-
-        while (waitSoFar < initialWait)
-        {
-            waitSoFar += timeStep;
-            yield return new WaitForSeconds(timeStep);
-        }
 
         float engulfTime = 15;
         float engulfTimer = 0;
+        float timeStep = 0.02f;
         lightComp.intensity = 8;
         while (engulfTimer < engulfTime)
         {
