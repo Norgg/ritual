@@ -29,6 +29,7 @@ public class RitualManager : MonoBehaviour {
 
     void LateUpdate()
     {
+        print(successProbability);
         if (finished)
         {
             Judge();
