@@ -16,8 +16,10 @@ public class MonitorManager : MonoBehaviour
 
     public AudioSource humSound;
     public AudioSource crackleSound;
+    public AudioSource weirdStartupSound;
 
     private bool heartScreens = false;
+    private bool patrickScreens = false;
 
 	void Start ()
 	{
@@ -37,6 +39,24 @@ public class MonitorManager : MonoBehaviour
         StartCoroutine(StartHeartScreens());
     }
 
+    public void PatrickScreens()
+    {
+        StartCoroutine(StartPatrickScreens());
+    }
+
+    IEnumerator StartPatrickScreens()
+    {
+        patrickScreens = true;
+        weirdStartupSound.Play();
+        humSound.Play();
+        crackleSound.Stop();
+        foreach (MonitorScreen monitor in monitors)
+        {
+            monitor.SetPatrick();
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
+
     IEnumerator StartHeartScreens()
     {
         heartScreens = true;
@@ -52,7 +72,7 @@ public class MonitorManager : MonoBehaviour
 	
 	void Update ()
 	{
-	    if (heartScreens)
+	    if (heartScreens || patrickScreens)
 	    {
 	        return;
 	    }
