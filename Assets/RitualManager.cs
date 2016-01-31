@@ -74,8 +74,8 @@ public class RitualManager : MonoBehaviour {
         monitorManager.HeartScreens();
         yield return new WaitForSeconds(7);
         routerLights.EngulfScreen();
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(26);
 
-        //SceneManager.LoadScene("end");
+        SceneManager.LoadScene("end");
     }
 }
