@@ -20,8 +20,6 @@ public class RitualManager : MonoBehaviour {
     public MonitorManager monitorManager;
     public Heart heart;
 
-	bool lost = false;
-
 	void Start ()
 	{
 	    successProbability = initialProbability;
@@ -59,8 +57,7 @@ public class RitualManager : MonoBehaviour {
             }
             else
             {
-                print("You lose");
-				lost = true;
+                StartCoroutine(LoseEnd());
             }
         }
     }
@@ -77,5 +74,13 @@ public class RitualManager : MonoBehaviour {
         yield return new WaitForSeconds(26);
 
         SceneManager.LoadScene("end");
+    }
+
+    IEnumerator LoseEnd()
+    {
+        //Goat freak
+        //Screen shake
+        //Patrick on monitors (with sound effects)
+        //Cut to Black
     }
 }
