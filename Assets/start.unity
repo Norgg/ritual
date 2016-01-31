@@ -201,7 +201,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 77675b0374d9dc54bae3f5266fad7044, type: 3}
-  m_Color: {r: 0.14705884, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.253, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!4 &181868792
@@ -223,57 +223,53 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 479710, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
+    - target: {fileID: 462920, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.06162435
       objectReference: {fileID: 0}
-    - target: {fileID: 479710, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
+    - target: {fileID: 462920, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
       propertyPath: m_LocalPosition.y
       value: -2.362197
       objectReference: {fileID: 0}
-    - target: {fileID: 479710, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
+    - target: {fileID: 462920, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 479710, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
+    - target: {fileID: 462920, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 479710, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
+    - target: {fileID: 462920, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 479710, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
+    - target: {fileID: 462920, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 479710, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
+    - target: {fileID: 462920, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 479710, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
+    - target: {fileID: 462920, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8296232, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
+    - target: {fileID: 148014, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
+      propertyPath: m_Name
+      value: Phone
       objectReference: {fileID: 0}
-    - target: {fileID: 11484950, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 21211946, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
-      propertyPath: m_Materials.Array.data[0]
+    - target: {fileID: 11486398, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
+      propertyPath: phoneTop
       value: 
-      objectReference: {fileID: 2100000, guid: 95a8829aa5607194a925b8d44f0addaa, type: 2}
-    - target: {fileID: 21233854, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 95a8829aa5607194a925b8d44f0addaa, type: 2}
+      objectReference: {fileID: 272646259}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: be29e1e0e546c4b4c8dded30444aee94, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &272646259 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 148642, guid: 06431bc09390d0c4abc24178d2859f44, type: 2}
+  m_PrefabInternal: {fileID: 219734303}
 --- !u!1 &721354875
 GameObject:
   m_ObjectHideFlags: 0
