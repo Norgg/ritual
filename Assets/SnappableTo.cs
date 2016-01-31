@@ -3,12 +3,12 @@ using System.Collections;
 
 public class SnappableTo : MonoBehaviour {
     GameObject favoured;
-    public Vector3 SnapOffset;
 	RitualManager ritual;
 	WifFiSignal wifi;
 
-    [HideInInspector]
+    public Vector3 SnapOffset;
     public GameObject currentlySnapped;
+
     [HideInInspector]
     public Vector3 snapCenter;
 
