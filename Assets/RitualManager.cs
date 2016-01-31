@@ -5,18 +5,26 @@ using UnityEngine.SceneManagement;
 
 public class RitualManager : MonoBehaviour {
     private float successProbability = 0;
-    public float initialProbabilityRange;
+
+    public float initialProbability;
     private bool finished = false;
     public bool judged = false;
 
     public Text debugText;
 
+
+    //Winning stuff
 	bool won = false;
+    public AudioSource modemSound;
+    public RouterLights routerLights;
+    public MonitorManager monitorManager;
+    public Heart heart;
+
 	bool lost = false;
 
 	void Start ()
 	{
-	    successProbability = Random.value* initialProbabilityRange;
+	    successProbability = initialProbability;
 	}
 
     void LateUpdate()
@@ -27,7 +35,7 @@ public class RitualManager : MonoBehaviour {
             Judge();
         }
 
-        successProbability = 0;
+        successProbability = initialProbability;
     }
 
     public void ContributeProbability(float probability)
@@ -36,6 +44,7 @@ public class RitualManager : MonoBehaviour {
     }
 
 	void OnGUI() {
+        /*
 		if (won) {
 			GUI.Label (new Rect (Screen.width / 2 - 100, Screen.height / 2 - 60, 200, 50), "UPLOAD SUCCESSFUL");
 		} else if (lost) {
@@ -46,6 +55,7 @@ public class RitualManager : MonoBehaviour {
 				SceneManager.LoadScene(0);
 			}
 		}
+        */
 	}
 
     public void Finish()
@@ -58,10 +68,15 @@ public class RitualManager : MonoBehaviour {
         if (!judged)
         {
             judged = true;
-            if (Random.value < initialProbabilityRange)
+            if (Random.value <= successProbability)
             {
                 print("You win");
 				won = true;
+                modemSound.Play();
+                heart.AscendHeart();
+                //Heart on all tvs
+
+                routerLights.EngulfScreen();
             }
             else
             {
